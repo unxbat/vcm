@@ -126,9 +126,5 @@ def player(video):
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     before_request()
-    posts = [
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'}
-    ]
-    return render_template('user.html', user=user, posts=posts)
+    return render_template('user.html', user=user)
 
