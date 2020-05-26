@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <td scope="col">Name</a></td>
+            <td scope="col">Category</td>
+            <td scope="col">Media path</td>
+            <td scope="col">Local path</td>
+            <td scope="col">Creation Date</td>
+            <td scope="col">Duration</td>
+            <td scope="col">Size</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for video in video_list %}
+        <tr>
+            <td><a href="{{url_for('player', video=video.name)}}" >{{video.name}}</a></td>
+            <td>{{video.category}}</td>
+            <td>{{video.path}}</td>
+            <td>{{video.full_path}}</td>
+            <td>{{video.creation_date}}</td>
+            <td>{{video.duration}}</td>
+            <td>{{video.size}}</td>
+        </tr>
+    {% endfor%}
+    </tbody>
+</table>
+{% endblock %}
